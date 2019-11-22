@@ -1,0 +1,141 @@
+﻿@model MovieCruiser.MovieEdit
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .tbl_1 {
+            width: 100%;
+            background-color: #34495E;
+            color: white;
+            padding: 20px;
+            font-size: 20px;
+            border-spacing: 20px;
+            border: 1px solid black;
+            border-bottom: 0px;
+            text-align: justify;
+        }
+
+        .tbl_2 {
+            border: 1px solid black;
+            width: 100%;
+            border-bottom: 0px;
+        }
+
+        .tbl_3 {
+            width: 100%;
+            background-color: darkgray;
+            border-bottom: 1px solid black;
+
+        }
+    </style>
+</head>
+
+    <table class="tbl_1">
+        <tr>
+            <td>
+                <h2>Movie Curiser&nbsp;&nbsp;<img src="~/images/images.jpg" class="image" /></h2>
+            </td>
+            <td style="text-align:right">
+                @Html.ActionLink("Movies", "MovieListAdmin", "Home") &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+        </tr>
+    </table>
+
+    @using (Html.BeginForm("Edit", "Home"))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.MovieId)
+
+        <table class="tbl_2">
+            <tr>
+                <td>
+                    <h1>Edit Movie</h1>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                    @Html.LabelFor(m => m.Title)
+                    <br />
+                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                    <div>
+                        @Html.LabelFor(m => m.BoxOffice)
+                        <br />
+                        @Html.TextBoxFor(m => m.BoxOffice, new { @class = "form-control" })
+                    </div>
+                </td>
+                <td>
+                    <br />
+                    <div>
+                        @Html.LabelFor(m => m.Active)
+                        <br />
+                        @Html.RadioButtonFor(m => m.Active, "Yes") Yes
+                        <span>@Html.RadioButtonFor(m => m.Active, "No") No</span>
+                    </div>
+                </td>
+                <td>
+                    <br />
+                    <div>
+                        @Html.LabelFor(m => m.DateOfLaunch)
+                        <br />
+                        @Html.TextBoxFor(m => m.DateOfLaunch, new { @class = "form-control" })
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        @Html.LabelFor(m => m.Genre)
+                        <br />
+                        @Html.DropDownListFor(m => m.Genre, new SelectList(Enum.GetValues(typeof(genre))), new { @class = "form-control" })
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                    <div>
+                        @Html.CheckBoxFor(m => m.HasTeaser, true) Has Teaser
+                    </div>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                    <div>
+                        <button>Save</button>
+                        <br />
+                    </div>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    }
+<br />
+    <table class="tbl_3">
+        <tr>
+            <td>
+                <br />
+                copyright © 2019
+                <br />
+            </td>
+        </tr>
+
+    </table>
+

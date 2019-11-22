@@ -1,0 +1,88 @@
+﻿@model MovieCruiser.CustomerList
+@{
+    ViewBag.Title = "CustomerRegistration";
+}
+<head>
+    <style>
+        .tbl_1 {
+            width: 100%;
+            background-color: #34495E;
+            color: white;
+            padding: 20px;
+            font-size: 20px;
+            border-spacing: 20px;
+            border-top: 1px solid black;
+            text-align: justify;
+        }
+
+        .tbl_3 {
+            width: 100%;
+            border-bottom:1px solid black;
+            background-color: darkgray;
+        }
+    </style>
+</head>
+<table class="tbl_1">
+    <tr>
+        <td>
+            <h2>Movie Curiser&nbsp;&nbsp;<img src="~/images/images.jpg" class="image" /></h2>
+        </td>
+        <td style="text-align:right">
+            @Html.ActionLink("Login", "Login", "Home") &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+    </tr>
+</table>
+@using (Html.BeginForm("Register", "Home"))
+{
+    <div>
+        @Html.LabelFor(m => m.Customerid)
+        <br />
+        @Html.TextBoxFor(m => m.Customerid,new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(m => m.CustomerName)
+        <br />
+        @Html.TextBoxFor(m => m.CustomerName,new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(m => m.DateOfBirth)
+        <br />
+        @Html.TextBoxFor(m => m.DateOfBirth, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(m => m.Email)
+        <br />
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(m => m.Password)
+        <br />
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <button>Register</button>
+
+    </div>
+    <div>
+        @ViewBag.Message
+    </div>
+}
+<br />
+<table class="tbl_3">
+    <tr>
+        <td>
+            <br />
+            copyright © 2019
+            <br />
+        </td>
+    </tr>
+
+</table>
+
+
+

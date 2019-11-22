@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "FavListEmpty";
+}
+<head>
+    <style>
+        .tbl_1 {
+            width: 100%;
+            background-color: #34495E;
+            color: white;
+            padding: 20px;
+            font-size: 20px;
+            border-spacing: 20px;
+            border-top: 1px solid black;
+            text-align: justify;
+        }
+
+
+        .tbl_3 {
+            width: 100%;
+            background-color: darkgray;
+            border-bottom: 1px solid black;
+        }
+    </style>
+</head>
+<table class="tbl_1">
+    <tr>
+        <td>
+            <h2>Movie Curiser&nbsp;&nbsp;<img src="~/images/images.jpg" class="image" /></h2>
+        </td>
+        <td style="text-align:right;width:20px">
+            @Html.ActionLink("Movies", "MovieListCustomer", "Home")&nbsp;&nbsp;&nbsp;
+        </td>
+        <td style="text-align:right;width:20px">
+            @Html.ActionLink("Favorites", "CustomerFavList", "Home")
+        </td>
+    </tr>
+</table>
+<h2>Favorites</h2>
+<br />
+<div>No items in Favorites.Use 'Add to Favorites' option in @Html.ActionLink("Movies","MovieListCustomer","Home")</div>
+<br />
+<table class="tbl_3">
+    <tr>
+        <td>
+            <br />
+            copyright © 2019
+            <br />
+        </td>
+    </tr>
+
+</table>

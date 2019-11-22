@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "MovieList";
+}
+<head>
+    <style>
+        .tbl_1 {
+            width: 100%;
+            background-color: #34495E;
+            color: white;
+            padding: 20px;
+            font-size: 20px;
+            border-spacing: 20px;
+            border-top: 1px solid black;
+            text-align: justify;
+        }
+        .tbl_2 {
+            width: 100%;
+            border-top:0;
+        }
+        .tbl_3{
+            width:100%;
+            background-color:darkgray;
+            border-bottom:1px solid black;
+        }
+       
+    </style>
+</head>
+<table class="tbl_1">
+    <tr>
+        <td>
+            <h2>Movie Curiser&nbsp;&nbsp;<img src="~/images/images.jpg" class="image" /></h2>
+        </td>
+        <td style="text-align:right;width:50px">
+            @Html.ActionLink("Movies", "MovieListAdmin", "Home") &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td style="text-align:right;width:80px">
+            @Html.ActionLink("Add", "AddMovie", "Home") &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+    </tr>
+</table>
+<table class="tbl_2">
+    <tr>
+        <td>
+            <h2>Movies</h2>
+        </td>
+    </tr>
+    <tr>
+        
+        <th><br />Title</th>
+        <th><br />Box Office</th>
+        <th><br />Active</th>
+        <th><br />DateOfLaunch</th>
+        <th><br />Genre</th>
+        <th><br />Has Teaser</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td><br />@Html.Encode(item.Title)</td>
+        <td><br />$ @Html.Encode(item.BoxOffice)<br /></td>
+        <td><br />@Html.Encode(item.Active)<br /></td>
+        <td><br />@item.DateOfLaunch.ToString("MM/dd/yyyy")<br /></td>
+        <td><br />@Html.Encode(item.Genre)<br /></td>
+        @if (item.HasTeaser == true)
+        {
+            <td><br />@Html.Encode("Yes")<br /></td>
+        }
+        @if (item.HasTeaser == false)
+        {
+            <td><br />@Html.Encode("No")<br /></td>
+        }
+
+        <td><br />@Html.ActionLink("Edit", "Edit", new { id = item.MovieId })<br /></td>
+    </tr>
+    }
+</table>
+<br />
+<table class="tbl_3">
+    <tr>
+        <td>
+            <br />
+            copyright © 2019
+            <br />
+        </td>
+    </tr>
+
+</table>
+
+
+
+
+
+

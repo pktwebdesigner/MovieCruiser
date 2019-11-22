@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .tbl_1 {
+            width: 100%;
+            background-color: #34495E;
+            color: white;
+            padding: 20px;
+            font-size: 20px;
+            border-spacing: 20px;
+            border: 1px solid black;
+            border-bottom: 0px;
+            text-align: justify;
+        }
+        .div1 {
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<table class="tbl_1">
+    <tr>
+        <td>
+            <h2>Movie Curiser&nbsp;&nbsp;<img src="~/images/images.jpg" class="image" /></h2>
+        </td>
+    </tr>
+</table>
+<table style="width:100%;height:auto">
+    <tr>
+        <td style="width:50%">
+
+            <img src="~/images/images (1).jpg" style="width:100%;height:120%" />
+        </td>
+        <td style="width:50%;background-color:#89D3DE">
+            @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+            {
+                <div style="margin-left:150px">
+                    @Html.Label("User Name :")
+                    &nbsp;&nbsp;
+                    <div>
+                        @Html.TextBox("txtUserName")
+                    </div>
+                    <br />
+                    <br />
+                    @Html.Label("Password :")
+                    &nbsp;&nbsp;
+                    <div> @Html.Password("txtPassword") </div>
+                    <br />
+                    <div style="color:red">@ViewBag.Message</div>
+                    <br />
+                    <br />
+                    <button>Login</button>
+                    <br />
+                    <br />
+                    @Html.ActionLink("Create New Account", "Register", "Home")
+                </div>
+            }
+
+        </td>
+    </tr>
+</table>
+<footer style="background-color:#34495E">&nbsp;</footer>

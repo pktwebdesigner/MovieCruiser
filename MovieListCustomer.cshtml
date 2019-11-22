@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "MovieListCustomer";
+}
+<head>
+    <style>
+        .tbl_1 {
+            width: 100%;
+            background-color: #34495E;
+            color: white;
+            padding: 20px;
+            font-size: 20px;
+            border-spacing: 20px;
+            border-top: 1px solid black;
+            text-align: justify;
+        }
+
+        .tbl_2 {
+            width: 100%;
+        }
+        .tbl_3 {
+            width: 100%;
+            background-color: darkgray;
+            border-bottom: 1px solid black;
+        }
+       
+    </style>
+</head>
+<table class="tbl_1">
+    <tr>
+        <td>
+            <h2>Movie Curiser&nbsp;&nbsp;<img src="~/images/images.jpg" class="image" /></h2>
+        </td>
+        <td style="text-align:right;width:20px">
+            @Html.ActionLink("Movies", "MovieListCustomer", "Home")&nbsp;&nbsp;&nbsp;
+        </td>
+        <td style="text-align:right;width:20px">
+            @Html.ActionLink("Favorites", "CustomerFavList", "Home")
+        </td>
+    </tr>
+</table>
+<table class="tbl_2">
+    <tr>
+        <th><br />Title</th>
+        <th><br />Box Office</th>
+        <th><br />Genre</th>
+        <th><br />Has Teaser</th>
+        <th><br />Action</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td><br />@Html.Encode(item.Title)</td>
+            <td><br />$ @Html.Encode(item.BoxOffice)</td>
+            <td><br />@Html.Encode(item.Genre)</td>
+            @if (item.HasTeaser == true)
+            {
+                <td><br />@Html.Encode("Yes")</td>
+            }
+            @if (item.HasTeaser == false)
+            {
+                <td><br />@Html.Encode("No")</td>
+            }
+
+            <td><br />@Html.ActionLink("Add to Favorites", "FavoritesListSuccess", new { id = item.MovieId })</td>
+        </tr>
+    }
+</table>
+<br />
+<table class="tbl_3">
+    <tr>
+        <td>
+            <br />
+            copyright © 2019
+            <br />
+        </td>
+    </tr>
+
+</table>
+
